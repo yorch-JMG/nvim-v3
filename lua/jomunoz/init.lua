@@ -15,7 +15,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    "folke/which-key.nvim",
     {
         "nvim-neo-tree/neo-tree.nvim",
         opts = {
@@ -116,7 +115,14 @@ require("lazy").setup({
     },
     {
         'tpope/vim-fugitive'
-    }
+    },
+    {
+        'lewis6991/gitsigns.nvim',
+        opts = {
+            numhl = true
+        }
+    },
+
 
 
 })
