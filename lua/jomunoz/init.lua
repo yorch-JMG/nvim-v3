@@ -38,7 +38,27 @@ require("lazy").setup({
     },
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
-    { 'hrsh7th/nvim-cmp' },
+    {
+        'hrsh7th/nvim-cmp',
+        config = function()
+            local cmp = require('cmp')
+
+            cmp.setup({
+                mapping = cmp.mapping.preset.insert({
+                    ['<Tab>'] = cmp.mapping.confirm({ select = true })
+                }),
+                snippet = {
+                    expand = function(args)
+                        require('luasnip').lsp_expant(args.body)
+                    end
+                },
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp' },
+                    { name = 'luasnip' }
+                })
+            })
+        end
+    },
     { 'L3MON4D3/LuaSnip' },
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
@@ -51,13 +71,13 @@ require("lazy").setup({
             lsp_zero.on_attach(function(client, bufnr)
                 -- see :help lsp-zero-keybindings
                 -- to learn the available actions
-                lsp_zero.default_keymaps({ buffer = bufnr })
                 vim.api.nvim_create_autocmd("BufWritePre", {
                     buffer = bufnr,
                     callback = function()
                         vim.lsp.buf.format()
                     end
                 })
+                lsp_zero.default_keymaps({ buffer = bufnr })
             end)
 
             require('mason').setup({})
