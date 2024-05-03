@@ -117,13 +117,19 @@ require("lazy").setup({
         end
     },
     {
-        "bluz71/vim-moonfly-colors",
-        name = "moonfly",
+        "rose-pine/neovim",
+        name = "rose-pine",
         lazy = false,
         priority = 1000,
         config = function()
-            vim.g.moonflyTransparent = true
-            vim.cmd [[colorscheme moonfly]]
+            local rosepine = require('rose-pine')
+            rosepine.setup({
+                styles = {
+                    transparency = true
+                }
+
+            })
+            vim.cmd [[colorscheme rose-pine]]
         end
     },
     {
