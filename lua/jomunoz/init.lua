@@ -45,7 +45,8 @@ require("lazy").setup({
 
             cmp.setup({
                 mapping = cmp.mapping.preset.insert({
-                    ['<Tab>'] = cmp.mapping.confirm({ select = true })
+                    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+
                 }),
                 snippet = {
                     expand = function(args)
