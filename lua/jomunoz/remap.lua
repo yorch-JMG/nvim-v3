@@ -17,6 +17,3 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set('n', '<leader>gs', '<Esc>:G<cr>')
 vim.keymap.set('n', '<leader>gc', '<Esc>:G commit<cr>')
-
--- keymap to run an npm command, put cursor a space after :!npm run
-vim.keymap.set('n', '<leader>nr', 'm`:%!npm run ')

@@ -110,6 +110,13 @@ require("lazy").setup({
         tag = '0.1.6',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
+            local telescope = require('telescope')
+            -- ignore node modules
+            telescope.setup({
+                defaults = {
+                    file_ignore_patterns = { 'node_modules' }
+                }
+            })
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
             vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
@@ -118,26 +125,17 @@ require("lazy").setup({
         end
     },
     {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        lazy = false,
-        priority = 1000,
+        'sainnhe/everforest',
         config = function()
-            local rosepine = require('rose-pine')
-            rosepine.setup({
-                styles = {
-                    transparency = true
-                }
-
-            })
-            vim.cmd [[colorscheme rose-pine]]
+            vim.g.everforest_background = 'hard'
+            vim.cmd [[ colorscheme everforest ]]
         end
     },
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = {
-            theme = 'auto'
+            theme = 'codedark'
         }
     },
     {
