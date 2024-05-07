@@ -17,3 +17,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set('n', '<leader>gs', '<Esc>:G<cr>')
 vim.keymap.set('n', '<leader>gc', '<Esc>:G commit<cr>')
+vim.keymap.set('n', '<leader>gp', '<Esc>:G push<cr>')
+vim.keymap.set('n', '<leader>gl', '<Esc>:G pull<cr>')
+vim.keymap.set('n', '<leader>gst', '<Esc>:G stash<cr>')

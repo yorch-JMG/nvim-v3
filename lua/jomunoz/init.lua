@@ -60,7 +60,11 @@ require("lazy").setup({
             })
         end
     },
-    { 'L3MON4D3/LuaSnip' },
+    {
+        'L3MON4D3/LuaSnip',
+        config = function()
+        end
+    },
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
     {
@@ -123,6 +127,8 @@ require("lazy").setup({
             vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
             vim.keymap.set('n', '<leader>fs', builtin.current_buffer_fuzzy_find, {})
+            -- make a keymap to search git branches
+            vim.keymap.set('n', '<leader>fb', builtin.git_branches, {})
         end
     },
     {
