@@ -124,7 +124,7 @@ require("lazy").setup({
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
             vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+            vim.keymap.set('n', '<leader>ft', builtin.buffers, {})
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
             vim.keymap.set('n', '<leader>fs', builtin.current_buffer_fuzzy_find, {})
             -- make a keymap to search git branches
@@ -148,7 +148,6 @@ require("lazy").setup({
                     transparency = true
                 }
             })
-            vim.cmd('colorscheme rose-pine')
         end
     },
     {
@@ -199,6 +198,14 @@ require("lazy").setup({
                     return string.format('%s • %s', name, blame_info.author)
                 end
             })
+        end
+    },
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    {
+        'sainnhe/gruvbox-material',
+        config = function()
+            vim.g.gruvbox_material_transparent_background = true
+            vim.cmd('colorscheme gruvbox-material')
         end
     }
 })
