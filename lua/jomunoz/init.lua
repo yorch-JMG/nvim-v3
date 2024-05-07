@@ -126,9 +126,22 @@ require("lazy").setup({
     },
     {
         'sainnhe/everforest',
+    },
+    {
+        'projekt0n/github-nvim-theme',
+        tag = 'v0.0.7',
+    },
+    {
+        'rose-pine/neovim',
+        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
-            vim.g.everforest_background = 'hard'
-            vim.cmd [[ colorscheme everforest ]]
+            require('rose-pine').setup({
+                styles = {
+                    transparency = true
+                }
+            })
+            vim.cmd('colorscheme rose-pine')
         end
     },
     {
@@ -146,6 +159,13 @@ require("lazy").setup({
         opts = {
             numhl = true
         }
+    },
+    {
+        'numToStr/Comment.nvim',
+        opts = {
+            -- add any options here
+        },
+        lazy = false,
     },
     {
         "zbirenbaum/copilot.lua",
