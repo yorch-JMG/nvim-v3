@@ -122,6 +122,7 @@ require("lazy").setup({
             vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
             vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+            vim.keymap.set('n', '<leader>fs', builtin.current_buffer_fuzzy_find, {})
         end
     },
     {
@@ -162,9 +163,6 @@ require("lazy").setup({
     },
     {
         'numToStr/Comment.nvim',
-        opts = {
-            -- add any options here
-        },
         lazy = false,
     },
     {
@@ -180,8 +178,21 @@ require("lazy").setup({
             })
         end
 
+    },
+    {
+        'f-person/git-blame.nvim',
+        config = function()
+            require('gitblame').setup({
+                enable = true,
+                schedule_event = 'CursorHold',
+                prefix = '  ',
+                formatter = function(name, blame_info)
+                    if blame_info.author == nil then
+                        return name
+                    end
+                    return string.format('%s • %s', name, blame_info.author)
+                end
+            })
+        end
     }
-
-
-
 })
