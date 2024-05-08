@@ -1,8 +1,9 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>n", "<Esc>:Neotree toggle<cr>", { silent = true })
 
-vim.keymap.set("n", "<C-s>", "<Esc>:w<cr>")
-vim.keymap.set("n", "<C-q>", "<Esc>:q!<cr>")
+vim.keymap.set("n", "<leader>s", "<Esc>:w<cr>")
+vim.keymap.set("n", "<leader>es", "<Esc>:wq<cr>")
+vim.keymap.set("n", "<leader>ee", "<Esc>:q!<cr>")
 
 -- make keybindings to move between windows
 vim.keymap.set("n", "<C-h>", "<C-w>h")

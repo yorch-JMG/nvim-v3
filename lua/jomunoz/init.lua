@@ -207,5 +207,11 @@ require("lazy").setup({
             vim.g.gruvbox_material_transparent_background = true
             vim.cmd('colorscheme gruvbox-material')
         end
+    },
+    {
+        'ggandor/leap.nvim',
+        config = function()
+            require('leap').create_default_mappings()
+        end
     }
 })
